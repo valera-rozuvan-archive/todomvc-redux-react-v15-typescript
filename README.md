@@ -1,20 +1,28 @@
-![https://travis-ci.org/jaysoo/todomvc-redux-react-typescript](https://api.travis-ci.org/jaysoo/todomvc-redux-react-typescript.svg)
+# todomvc redux react v15 typescript
+
+TodoMVC example using Redux, React v15, and Typescript
+
+## Fork
+
+This project began as a fork of [jaysoo/todomvc-redux-react-typescript](https://github.com/jaysoo/todomvc-redux-react-typescript). A lot of changes took place to bring it up to speed. Think of it as a re-version in 2022 ;)
+
+## About
 
 This is an implementation of [TodoMVC](http://todomvc.com/) built using:
 
-- [React & ReactDOM](http://facebook.github.io/react/) 15.4.2
-- [Redux](https://github.com/rackt/redux) 3.6.0
-- [TypeScript](http://www.typescriptlang.org/) 2.2.1
+- [React & ReactDOM](http://facebook.github.io/react/) `^15.7.0`
+- [Redux](https://github.com/rackt/redux) `3.7.2`
+- [TypeScript](http://www.typescriptlang.org/) `^4.4.3`
 
 It is adapted from the [redux TodoMVC example](https://github.com/rackt/redux/tree/master/examples/todomvc).
 
-Read more about it in my blog post: http://jaysoo.ca/2015/09/26/typed-react-and-redux/
+Original blog post (conceived in 2015, updated in 2017): [React and Redux with TypeScript](http://jaysoo.ca/2015/09/26/typed-react-and-redux/)
 
 ## Getting Started
 
 Requirement:
 
-- NodeJS 6+
+- NodeJS v14+
 
 Install dependencies:
 
@@ -24,32 +32,22 @@ npm install
 
 ## Running development server
 
-Run webpack dev server (for assets):
+Run webpack dev server:
 
 ```
-npm start
-```
-
-Visit [http://localhost:3000/](http://localhost:3000/).
-
-## Running production server
-
-```
-npm run start:prod
+npm run start
 ```
 
 Visit [http://localhost:3000/](http://localhost:3000/).
 
-This will build the assets for you on the first run. For subsequent starts, you should run:
+## Generating a production build
 
 ```
-npm run build
+npm run build:prod
 ```
 
-### Testing
+This will build all the assets for you, and place the static files in the folder `build`. You can then use any static file server to host your production app.
 
-To run tests, use:
+## License
 
-```
-npm test
-```
+Licensed under MIT. See [LICENSE](LICENSE) for more details. See [CONTRIBUTORS.md](./CONTRIBUTORS.md) file for a list of all contributors to this project.
