@@ -4,4 +4,6 @@ export type Todo = {
   completed: boolean;
 };
 
-export type IState = Todo[];
+export interface AppState {
+  todos: Todo[];
+}

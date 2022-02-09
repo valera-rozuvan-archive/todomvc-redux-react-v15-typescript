@@ -6,9 +6,7 @@ import {
   Header,
   MainSection,
 } from './components';
-
-import {model} from './stateManagement';
-
+import {Todo, AppState} from './stateManagement/model';
 import {
   addTodo,
   editTodo,
@@ -19,12 +17,8 @@ import {
 } from './stateManagement';
 
 interface AppProps {
-  todos: model.Todo[];
-  dispatch: Dispatch<{}>;
-}
-
-interface AppState {
-  todos: model.Todo[];
+  todos: Todo[];
+  dispatch: Dispatch<AppState>;
 }
 
 class App extends React.Component<AppProps, AppState> {
@@ -36,9 +30,9 @@ class App extends React.Component<AppProps, AppState> {
         <Header addTodo={(text: string) => dispatch(addTodo(text))}/>
         <MainSection
           todos={todos}
-          editTodo={(t, s) => dispatch(editTodo(t, s))}
-          deleteTodo={(t: model.Todo) => dispatch(deleteTodo(t))}
-          completeTodo={(t: model.Todo) => dispatch(completeTodo(t))}
+          editTodo={(todo: Todo, text: string) => dispatch(editTodo(todo, text))}
+          deleteTodo={(todo: Todo) => dispatch(deleteTodo(todo))}
+          completeTodo={(todo: Todo) => dispatch(completeTodo(todo))}
           clearCompleted={() => dispatch(clearCompleted())}
           completeAll={() => dispatch(completeAll())}
         />
