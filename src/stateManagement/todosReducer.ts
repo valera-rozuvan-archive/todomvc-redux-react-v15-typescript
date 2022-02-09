@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid';
 import {handleActions, Action} from 'redux-actions';
 
 import {Todo} from './model';
@@ -6,13 +7,13 @@ import {ActionTypes} from '../constants/ActionTypes';
 const initialState: Todo[] = [{
   text: 'Use Redux with TypeScript',
   completed: false,
-  id: 0
+  id: uuidv4(),
 }];
 
 export const todosReducer = handleActions<Todo[], Todo>({
   [ActionTypes.ADD_TODO]: (state: Todo[], action: Action<Todo>): Todo[] => {
     return [{
-      id: state.reduce((maxId, todo) => Math.max(todo.id ? todo.id : 0, maxId), -1) + 1,
+      id: uuidv4(),
       completed: action.payload ? action.payload.completed : false,
       text: action.payload ? action.payload.text : ''
     }, ...state];
@@ -25,7 +26,7 @@ export const todosReducer = handleActions<Todo[], Todo>({
   },
 
   [ActionTypes.EDIT_TODO]: (state: Todo[], action: Action<Todo>): Todo[] => {
-    return <Todo[]>state.map(todo =>
+    return state.map(todo =>
       action.payload && todo.id === action.payload.id
         ? {...todo, text: action.payload.text}
         : todo
@@ -33,7 +34,7 @@ export const todosReducer = handleActions<Todo[], Todo>({
   },
 
   [ActionTypes.COMPLETE_TODO]: (state: Todo[], action: Action<Todo>): Todo[] => {
-    return <Todo[]>state.map(todo =>
+    return state.map(todo =>
       action.payload && todo.id === action.payload.id ?
         {...todo, completed: !todo.completed} :
         todo
@@ -42,7 +43,7 @@ export const todosReducer = handleActions<Todo[], Todo>({
 
   [ActionTypes.COMPLETE_ALL]: (state: Todo[], action: Action<Todo>): Todo[] => {
     const areAllMarked = state.every(todo => todo.completed);
-    return <Todo[]>state.map(todo => ({
+    return state.map(todo => ({
       ...todo,
       completed: !areAllMarked
     }));

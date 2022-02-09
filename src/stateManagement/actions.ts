@@ -1,7 +1,6 @@
 import {createAction} from 'redux-actions';
 
 import {Todo} from './model';
-
 import {ActionTypes} from '../constants/ActionTypes';
 
 const addTodo = createAction<Todo, string>(
