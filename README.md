@@ -1,5 +1,11 @@
 # todomvc redux react v15 typescript
 
+## wip has moved
+
+Future work on this repository has moved to the monorepo [valera-rozuvan/experiments](https://github.com/valera-rozuvan/experiments). This repo is archived for historic purposes (to preserve commit history). Navigate over to [experiments/todomvc-redux-react-v15-typescript](https://github.com/valera-rozuvan/experiments/tree/main/todomvc-redux-react-v15-typescript) to see updates (if any).
+
+## introduction
+
 TodoMVC example using Redux, React v15, and Typescript
 
 ## Fork
